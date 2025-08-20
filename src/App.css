@@ -1,0 +1,101 @@
+header{
+  height: 50px;
+  background: linear-gradient(90deg, red, blue);
+  line-height: 50px;
+  color: white;
+  text-align: center;
+  flex-shrink: 0;
+}
+footer{
+  height: 30px;
+  color: rgb(248, 241, 248);
+  font-size: 8pt;
+  background: linear-gradient(90deg, rgb(45, 46, 45), rgb(232, 159, 219));
+  line-height: 30px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  flex-shrink: 0;
+}
+section{
+  position:auto;
+  top: 50px; /* height of header */
+  padding-bottom: 50px; /* space for footer */
+  overflow-y: auto; /* enable vertical scroll */
+  height: calc(100%  -80px); 
+}
+header.logo{
+  font-size: 12pt;
+  font-weight: bold;
+}
+section .searchbar{
+  margin: 20px;
+}
+section .searchbar input{
+  width: 100%;
+  height: 30px;
+}
+section .grid{
+  width: calc(100% -60px);
+  height: calc(100% -60px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(350px,1fr));
+  margin: 20px;
+  gap: 20px;
+}
+section .grid .card{
+  background: rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 100%;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 0 10px 20px rgb(119, 107, 119);
+  transition: transform 0.3s ease;;
+}
+section .grid .card span{
+  background:rgb(223, 221, 219);
+  columns: white;
+  position: relative;
+  border-radius: 8px;
+  padding: 3px;
+  float: right;
+}
+.card:hover{
+  transform: translateY(-8px);
+}
+section .overlay{
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: flex-end;
+}
+section .overlay.SlidingPanel{
+  width: 300px;
+  height: 100%;
+  background:white;
+  padding: 20px;
+  animation: slideIn 0.3s ease;
+}
+section .overlay.SlidingPanel button{
+  background:none;
+  border: none;
+  font-size: 14pt;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+@keyframes slideIn {
+  from {
+    transform :trajslateX(100%);
+  }
+  to{
+    transform :translateX(0);
+  }
+}
